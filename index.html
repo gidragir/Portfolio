@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,98 @@
   <title>Илья Балтер</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="js/snap.svg-min.js"></script>
 
 </head>
+
 <body>
-  <div>
+  <div class="frame">
     <h1>Обо мне</h1>
+    <div class="about">
+      <div class="img-container">
+        <svg class="svg-circle" version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g transform="rotate(-150 150 150)">
+            <circle cx="150" cy="150" r="100" stroke="#673E93" stroke-width="7" stroke-dasharray="220"
+              stroke-dashoffset="220" fill="none" />
+          </g>
+        </svg>
+        <div id="icons-container"></div>
+        <img class="me"
+          src="https://avatars.mds.yandex.net/i?id=06154685ad8a0a95393d468d2596bbe8-4872059-images-thumbs&n=13">
+
+      </div>
+      <p>
+        Какой-то текст
+      </p>
+    </div>
   </div>
 
-  <div>
+  <div class="frame">
     <h1>Мои знания в программировании</h1>
   </div>
 
-  <div>
+  <div class="frame">
     <h1>Изучаемые фреймворки</h1>
   </div>
 
-  <div>
+  <div class="frame">
     <h1>Мои навыки</h1>
   </div>
+
+  <div class="frame">
+    <h1>Мой инструментарий</h1>
+  </div>
+  
+  <script>
+    var parent = document.getElementById("icons-container")
+    for (let i = 1; i < 5; i++) {
+      var newElementDiv = document.createElement("div");
+      newElementDiv.className = "icon-container";   
+      newElementDiv.style.zIndex = 6 - i;
+      newElementDiv.style.transform = "rotate(" + (-60 + 40 * i) + "deg)";
+      parent.appendChild(newElementDiv);
+
+      var newElementInnerDiv = document.createElement("div");
+      newElementInnerDiv.className = "img-innerdiv";
+      newElementInnerDiv.style.transform = "rotate(" + (60 - 40 * i) + "deg)";
+      newElementDiv.appendChild(newElementInnerDiv);
+
+      var newElementImg = document.createElement("img");
+      newElementImg.className = "icon-img";
+
+      switch (i) {
+        case 1:
+          imgSrc = "pictures/telegramm.svg";
+          break;
+        case 2:
+          imgSrc = "pictures/instagram.svg";
+          break;
+        case 3:
+          imgSrc = "pictures/linkedin.svg";
+          break;
+        case 4:
+          imgSrc = "pictures/gmail.svg";
+          break;
+        case 5:
+          imgSrc = "pictures/gmail.svg";
+          break;
+        default:
+      }
+
+      newElementImg.src = imgSrc;
+      newElementInnerDiv.appendChild(newElementImg);
+
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
+
 </body>
+
 </html>
