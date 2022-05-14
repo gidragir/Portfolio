@@ -32,9 +32,11 @@
           src="https://avatars.mds.yandex.net/i?id=06154685ad8a0a95393d468d2596bbe8-4872059-images-thumbs&n=13">
 
       </div>
-      <p>
-        Какой-то текст
-      </p>
+      <div>
+        <p>ФИО: Балтер Илья Николаевич</p>
+        <p>Возраст: 20</p>
+
+      </div>
     </div>
   </div>
 
@@ -56,42 +58,48 @@
   
   <script>
     var parent = document.getElementById("icons-container")
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i < 6; i++) {
+
+      switch (i) {
+        case 1:
+          imgSrc = "pictures/telegramm.svg";
+          url = "https://t.me/Ilya12345abcd";
+          break;
+        case 2:
+          imgSrc = "pictures/instagram.svg";
+          url = "https://www.instagram.com/ilya_balter/";
+          break;
+        case 3:
+          imgSrc = "pictures/linkedin.svg";
+          url = "https://www.linkedin.com/in/ilya-balter-02427723a";
+          break;
+        case 4:
+          imgSrc = "pictures/github.svg";
+          url = "https://github.com/gidragir";
+          break;
+        case 5:
+          imgSrc = "pictures/gmail.svg";
+          url = "https://t.me/Ilya12345abcd";
+          break;
+        default:
+      }
+
       var newElementDiv = document.createElement("div");
       newElementDiv.className = "icon-container";   
       newElementDiv.style.zIndex = 6 - i;
       newElementDiv.style.transform = "rotate(" + (-60 + 40 * i) + "deg)";
       parent.appendChild(newElementDiv);
 
-      var newElementInnerDiv = document.createElement("div");
-      newElementInnerDiv.className = "img-innerdiv";
-      newElementInnerDiv.style.transform = "rotate(" + (60 - 40 * i) + "deg)";
-      newElementDiv.appendChild(newElementInnerDiv);
+      var newElementUrl = document.createElement("a");
+      newElementUrl.className = "img-url";
+      newElementUrl.href = url;
+      newElementUrl.style.transform = "rotate(" + (60 - 40 * i) + "deg)";
+      newElementDiv.appendChild(newElementUrl);
 
       var newElementImg = document.createElement("img");
       newElementImg.className = "icon-img";
-
-      switch (i) {
-        case 1:
-          imgSrc = "pictures/telegramm.svg";
-          break;
-        case 2:
-          imgSrc = "pictures/instagram.svg";
-          break;
-        case 3:
-          imgSrc = "pictures/linkedin.svg";
-          break;
-        case 4:
-          imgSrc = "pictures/gmail.svg";
-          break;
-        case 5:
-          imgSrc = "pictures/gmail.svg";
-          break;
-        default:
-      }
-
       newElementImg.src = imgSrc;
-      newElementInnerDiv.appendChild(newElementImg);
+      newElementUrl.appendChild(newElementImg);
 
     }
   </script>
